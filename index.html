@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- icons -->
+</head>
+<body>
+    <header role="banner">
+        <h1>Welcome to My Website</h1>
+        <nav role="navigation"></nav>
+        <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+            <ul id="nav-menu" class ="hidden">
+                <li><a href="#about-me">AboutMe</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main role="main">
+        <article role="article">
+            <h2>Article Title</h2>
+            <p>This is the content of the article.</p>
+        </article>
+        <section id="about-me" role="region" aria-labelledby="about-me-heading">
+            <h2 id="about-me-heading">About Me</h2>
+            <p>Hello! I am a passionate web developer with a love for creating dynamic and user-friendly websites. With a background in computer science and a keen eye for design, I strive to build web applications that are both functional and aesthetically pleasing.</p>
+        </section>
+        <section id="projects" role="region" aria-labelledby="projects-heading">
+            <h2 id="projects-heading">Projects</h2>
+            <div class="filter-buttons">
+                <button onclick="filterProjects('all')">All</button>
+                <button onclick="filterProjects('web')">Web</button>
+                <button onclick="filterProjects('ecommerce')">E-commerce</button>
+                <button onclick="filterProjects('dataprocessing')">Data Processing</button>
+            </div>
+            <article role="article" class="project" data-category="web">
+                <h3>Project 1</h3>
+                <figure>
+                    <img src="project1.png" alt="Screenshot of Project 1" onclick="openModal(this)">
+                    <figcaption>Project 1: A web application for managing tasks.</figcaption>
+                </figure>
+                <p>This project is a task management app that helps users organize their daily activities efficiently.</p>
+            </article>
+            <article role="article" class="project" data-category="ecommerce">
+                <h3>Project 2</h3>
+                <figure>
+                    <img src="project2.png" alt="Screenshot of Project 2" onclick="openModal(this)">
+                    <figcaption>Project 2: An e-commerce website for selling products online.</figcaption>
+                </figure>
+                <p>This project is an e-commerce platform that allows users to browse and purchase products online.</p>
+            </article>
+            <article role="article" class="project" data-category="dataprocessing">
+                <h3>Project 3</h3>
+                <figure>
+                    <img src="project3.png" alt="Screenshot of Project 3" onclick="openModal(this)">
+                    <figcaption>Project 3: A website to analyze big data files like *.csv.</figcaption>
+                </figure>
+                <p>This project is a database connected web server to handle big data operations in *.csv format.</p>
+            </article>
+        </section>
+        <section id="skills" role="region" aria-labelledby="skills-heading">
+            <h2 id="skills-heading">Skills</h2>
+                <ul class="skills">
+                    <li><i class="fab fa-html5"></i> HTML</li>
+                    <li><i class="fab fa-css3-alt"></i> CSS</li>
+                    <li><i class="fab fa-js"></i> JavaScript</li>
+                    <li><i class="fab fa-react"></i> React</li>
+                    <li><i class="fab fa-node-js"></i> Node.js</li>
+                </ul>
+        </section>
+        <section id="contact" role="form" aria-labelledby="contact-heading">
+            <h2 id="contact-heading">Contact</h2>
+            <form id="contact-form" action="submit_form.php" method="post" onsubmit="return validateForm()">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="name-error"></span>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <span class="error-message" id="email-error"></span>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <span class="error-message" id="message-error"></span>
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <p>&copy; 2025 My Website</p>
+    </footer>
+        <!-- Modal Structure -->
+        <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+    <script src="script.js"></script>
+</body>
+</html>
